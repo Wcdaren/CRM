@@ -46,6 +46,19 @@
             </li>
         </ul>
     </div>
+<script charset="utf-8" type="text/javascript" src="js/ajax.js"></script>
+<script charset="utf-8" type="text/javascript" >
+    //获取客户信息，完成页面的数据绑定
+    ajax({
+        url:"/getList",
+        success:function(jsonData){
+            console.log(jsonData);
+            
+        }
+    })
+</script>
+
+
 </body>
 
 </html>
