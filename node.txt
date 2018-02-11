@@ -32,7 +32,7 @@ URL：“/getInfo" GET //->get 给的少拿的多
 
 3.增加客户信息
 URL：“/addInfo" POST
-参数: 请求主题中 '{"name":"","age":"","phone":"","address":"",}'
+参数: 请求主体中 '{"name":"","age":"","phone":"","address":"",}'
 (id自动生成，在最后一个id的基础上+1)
 返回:
 '{
