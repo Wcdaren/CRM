@@ -1,16 +1,1 @@
-[
-    {
-        "id":1,
-        "name":"忘尘",
-        "age":7,
-        "phone":"110",
-        "address":"中国"  
-    },
-    {
-        "id":2,
-        "name":"忘尘2",
-        "age":6,
-        "phone":"11110",
-        "address":"中国"  
-    }
-]
+[{"name":"忘尘","age":"22","phone":"11","address":"忘尘","id":1},{"name":"忘尘","age":"223","phone":"11","address":"忘尘","id":2},{"name":"忘尘","age":"22222","phone":"11","address":"忘尘","id":3},{"name":"忘尘","age":"223","phone":"11","address":"忘尘","id":4},{"name":"忘尘2","age":"223","phone":"11","address":"忘尘","id":5},{"name":"辜22","age":"12","phone":"12","address":"12","id":"6"},{"name":"辜","age":"122","phone":"12","address":"12","id":7}]

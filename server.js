@@ -7,7 +7,11 @@ var server = http.createServer(function (req, res) {
     var urlObj = url.parse(req.url, true),
         pathname = urlObj.pathname,
         query = urlObj.query;//存储的是客户端请求的url地址中问号传参后面的信息
+        // console.log(urlObj);
+        // console.log(pathname);
+        // console.log(query);
 
+        
     var reg = /\.(HTML|JS|CSS|JSON|TXT|ICO)/i;
 
     if (reg.test(pathname)) {
@@ -71,7 +75,7 @@ var server = http.createServer(function (req, res) {
         res.end(JSON.stringify(result))
         return
 
-    }
+    } 
 
     //2.获取具体的某一个客户的信息
     if (pathname === "/getInfo") {
@@ -82,8 +86,12 @@ var server = http.createServer(function (req, res) {
             msg: "客户不存在",
             data: null,
         }
+        // console.log("进入get");
+        // console.log("-+-".repeat(20))
+    
         for (var i = 0; i < con.length; i++) {
-            if (con[i]['id'] === customId) {
+            //这里的==要注意 不能是=== 因为类型不一样
+            if (con[i]["id"] == customId) {
                 result = {
                     code: 0,
                     msg: "成功",
@@ -104,7 +112,7 @@ var server = http.createServer(function (req, res) {
         var flag = false
 
         for (var i = 0; i < con.length; i++) {
-            if (con[i]["id"] === customId) {
+            if (con[i]["id"] == customId) {
                 con.splice(i, 1)
                 flag = true
                 break
@@ -129,7 +137,7 @@ var server = http.createServer(function (req, res) {
     }
 
     //4.增加客户信息
-    if (pathname === "/getInfo") {
+    if (pathname === "/addInfo") {
         var str = ''
 
         req.on("data", function (chunk) {
@@ -176,13 +184,16 @@ var server = http.createServer(function (req, res) {
             var flag = false,
                 data = JSON.parse(str)
             for (var i = 0; i < con.length; i++) {
-                if (con[i]["id"] === data["id"]) {
+                if (con[i]["id"] == data["id"]) {
                     con[i] = data
                     flag = true
                     break
                 }
             }
-            result.msg = "修改失败，需要修改的客户不存在"
+            // result.msg = "修改失败，需要修改的客户不存在"
+            result = {
+                msg:"修改失败，需要修改的客户不存在"
+            }
             if (flag) {
                 fs.writeFileSync(customPath, JSON.stringify(con), "utf-8")
                 result = {
